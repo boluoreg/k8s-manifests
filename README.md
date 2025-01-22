@@ -2,6 +2,8 @@
 
 ## 🍍 How to pronounce "pinernetes"
 
+> For those of you who don't have a sense of humor, Wikipedia has an article: [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes)
+
 The word Pinernetes is a combination of "pineapple" and "kubernetes". There is no official pronunciation. If you have to have one, it might be pine-netes.
 
 ## 🍍 Why do we need to plant pineapples in containers?

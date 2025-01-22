@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pineapple-reg
+  labels:
+    app: pineapple-reg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pineapple-reg
+  template:
+    metadata:
+      name: pineapple-reg
+      labels:
+        app: pineapple-reg
+    spec:
+      containers:
+        - name: pineapple-reg
+          image: nkwjg/pineapple-reg:v1.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: KAFKA
+              value: "kafka.default.svc.cluster.local:9092"
+          volumeMounts:
+            - name: data-volume
+              mountPath: /app/sfz.txt
+              subPath: sfz.txt
+      restartPolicy: Always
+      volumes:
+        - name: data-volume
+          secret:
+            # kubectl create secret generic sfz-secret --from-file=data.txt
+            secretName: sfz-secret
