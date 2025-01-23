@@ -20,15 +20,15 @@ spec:
           image: nkwjg/pineapple-reg:v1.0
           imagePullPolicy: IfNotPresent
           env:
-            - name: KAFKA
+            - name: KAFKA_ADDRESS
               value: "kafka.default.svc.cluster.local:9092"
           volumeMounts:
             - name: data-volume
-              mountPath: /app/sfz.txt
+              mountPath: /app/config/sfz.txt
               subPath: sfz.txt
       restartPolicy: Always
       volumes:
         - name: data-volume
           secret:
-            # kubectl create secret generic sfz-secret --from-file=data.txt
+            # kubectl create secret generic sfz-secret --from-file=sfz.txt
             secretName: sfz-secret
